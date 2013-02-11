@@ -183,12 +183,58 @@ describe("The slidingPanel widget", function() {
             expect($leftPanel).toHaveData("slided", true);
         });
 
+        it('should change the slide button icon to the right if panel is left', function() {
+            spyOn($.fn, "animate");
+            $leftPanel.find(".pushpin").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            expect($leftPanel.find(".slide i")).toHaveClass("icon-double-angle-right");
+        });
+
+        it('should change the slide button icon to the left if panel is right', function() {
+            spyOn($.fn, "animate");
+            $rightPanel.find(".pushpin").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            expect($rightPanel.find(".slide i")).toHaveClass("icon-double-angle-left");
+        });
+
         it("should decrease the right css if panel is right", function() {
             spyOn($.fn, "animate");
             $rightPanel.find(".pushpin").trigger("click");
             $rightPanel.find(".slide").trigger("click");
             var expectedAnimate = {
                 "right": "-=" + ($leftPanel.width() - 18)
+            };
+            expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
+        });
+    });
+
+    describe("when sliding a panel in", function() {
+        it("should increase the left css if panel is left", function() {
+            spyOn($.fn, "animate");
+            $leftPanel.find(".pushpin").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            var expectedAnimate = {
+                "left": "+=" + ($leftPanel.width() - 18)
+            };
+            expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
+        });
+
+        it("should mark the panel as not slided", function() {
+            spyOn($.fn, "animate");
+            $leftPanel.find(".pushpin").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            expect($leftPanel).toHaveData("slided", false);
+        });
+
+        it("should increase the right css if panel is right", function() {
+            spyOn($.fn, "animate");
+            $rightPanel.find(".pushpin").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            var expectedAnimate = {
+                "right": "+=" + ($rightPanel.width() - 18)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });

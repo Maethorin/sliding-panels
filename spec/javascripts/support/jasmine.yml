@@ -11,10 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
-   - spec/javascripts/lib/jquery.js
-   - spec/javascripts/lib/json2.js
-   - spec/javascripts/lib/underscore.js
-   - spec/javascripts/lib/backbone.js
+   - spec/lib/sliding-panels.js
 # ADD OTHER FILES HERE!
 
 
@@ -30,6 +27,7 @@ src_files:
 #   - stylesheets/*.css
 #
 stylesheets:
+   - spec/css/main.css
 
 # helpers
 #
@@ -54,6 +52,7 @@ helpers:
 #   - **/*[sS]pec.js
 #
 spec_files:
+   - sliding-panels-spec.js
 
 # src_dir
 #
@@ -76,3 +75,5 @@ src_dir:
 # spec_dir: spec/javascripts
 #
 spec_dir:
+   - spec
+

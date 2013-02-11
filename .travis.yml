@@ -1,5 +1,5 @@
 before_script: 
   - "sh -e /etc/init.d/xvfb start"
-script: "sh -c 'DISPLAY=:99.0 bundle exec rake jasmine:headless'"
+script: "sh -c 'DISPLAY=:99.0 bundle exec rake jasmine:headless --use-server'"
 rvm:
   - 1.9.2

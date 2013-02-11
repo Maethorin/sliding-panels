@@ -13,12 +13,30 @@
     </head>
     <body>
         <div class="panel-container">
-
+            <div class="left-dom">
+                Left DOM
+            </div>
+            <div class="center-dom">
+                Center DOM
+            </div>
+            <div class="right-dom">
+                Right DOM
+            </div>
         </div>
-
         <script type="text/javascript">
             $(function() {
-                $(".panel-container").slidingPanels();
+                $(".panel-container").slidingPanels({
+                    panelTitle: {
+                        left: "Left Panel",
+                        center: "Center Panel",
+                        right: "Right Panel"
+                    },
+                    panelBody: {
+                        left: ".left-dom",
+                        center: ".center-dom",
+                        right: ".right-dom"
+                    }
+                });
             });
         </script>
     </body>

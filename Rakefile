@@ -2,4 +2,4 @@ require 'jasmine-headless-webkit'
 
 Jasmine::Headless::Task.new
 
-task :default => 'jasmine:headless --use-server'
+task :default => 'jasmine:headless'

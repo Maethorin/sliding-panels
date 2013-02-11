@@ -8208,6 +8208,22 @@ ul.icons li [class*=" icon-"] {
 }
 
 /* line 23, ../../sass/main.scss */
+.left .panel-title {
+  text-align: right;
+  padding-right: 30px;
+}
+
+/* line 28, ../../sass/main.scss */
+.center .panel-title {
+  padding-left: 10px;
+}
+
+/* line 32, ../../sass/main.scss */
+.right .panel-title {
+  padding-left: 30px;
+}
+
+/* line 36, ../../sass/main.scss */
 .floating {
   position: absolute;
   margin-left: 0;
@@ -8215,37 +8231,37 @@ ul.icons li [class*=" icon-"] {
   -moz-box-shadow: #999999 1px 2px 17px;
   box-shadow: #999999 1px 2px 17px;
 }
-/* line 27, ../../sass/main.scss */
+/* line 40, ../../sass/main.scss */
 .floating.left {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
   left: 0;
 }
-/* line 30, ../../sass/main.scss */
+/* line 43, ../../sass/main.scss */
 .floating.left .panel-header {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 33, ../../sass/main.scss */
+/* line 46, ../../sass/main.scss */
 .floating.left .panel-title {
   padding-right: 50px;
 }
-/* line 37, ../../sass/main.scss */
+/* line 50, ../../sass/main.scss */
 .floating.right {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
   border-radius: 4px 0 0 4px;
   right: 0;
 }
-/* line 40, ../../sass/main.scss */
+/* line 53, ../../sass/main.scss */
 .floating.right .panel-header {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
 }
-/* line 43, ../../sass/main.scss */
+/* line 56, ../../sass/main.scss */
 .floating.right .panel-title {
   padding-left: 50px;
 }

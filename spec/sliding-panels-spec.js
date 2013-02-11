@@ -3,7 +3,18 @@ describe("The slidingPanel widget", function() {
     beforeEach(function() {
         loadFixtures('panels.html');
         $container = $(".panel-container");
-        $container.slidingPanels();
+        $container.slidingPanels({
+            "panelTitle": {
+                "left": "Left Panel",
+                "center": "Center Panel",
+                "right": "Right Panel"
+            },
+            "panelBody": {
+                "left": ".some-left-dom",
+                "center": $(".some-center-dom"),
+                "right": ""
+            }
+        });
         $leftPanel = $(".panel.left");
         $centerPanel = $(".panel.center");
         $rightPanel = $(".panel.right");
@@ -241,6 +252,28 @@ describe("The slidingPanel widget", function() {
                 "right": "+=" + ($rightPanel.width() - 18)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
+        });
+    });
+
+    describe("when loading options", function() {
+        it("should be possible to pass a left panel title", function() {
+            expect($leftPanel.find(".panel-title")).toHaveText("Left Panel");
+        });
+
+        it("should be possible to pass a center panel title", function() {
+            expect($centerPanel.find(".panel-title")).toHaveText("Center Panel");
+        });
+
+        it("should be possible to pass a right panel title", function() {
+            expect($rightPanel.find(".panel-title")).toHaveText("Right Panel");
+        });
+
+        it('should be possible to add DOM to panel body passing selector', function() {
+            expect($leftPanel.find(".panel-body").find(".some-left-dom")).toHaveText("this is the left dom");
+        });
+
+        it('should be possible to add DOM to panel body passing DOM', function() {
+            expect($centerPanel.find(".panel-body").find(".some-center-dom")).toHaveText("this is the center dom");
         });
     });
 });

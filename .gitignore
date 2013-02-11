@@ -1,1 +1,10 @@
+.DS_Store
 .sass-cache
+.idea/
+components/bootstrap
+components/compass-twitter-bootstrap
+components/font-awesome
+components/jasmine
+components/jasmine-jquery
+components/jquery
+components/jquery-ui

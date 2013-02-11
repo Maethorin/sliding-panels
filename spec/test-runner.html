@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Runner for JQuery Bootstrap Sliding Panels</title>
+        <link rel="stylesheet" href="../lib/css/main.css" />
+        <link rel="stylesheet" href="../components/jasmine/jasmine.css" />
+
+        <script type="text/javascript" src="../components/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="../components/jquery-ui/jquery.ui.widget.min.js"></script>
+
+        <script type="text/javascript" src="../components/jasmine/jasmine.js"></script>
+        <script type="text/javascript" src="../components/jasmine/jasmine-html.js"></script>
+        <script type="text/javascript" src="../components/jasmine-jquery/jasmine-jquery.js"></script>
+
+        <script type="text/javascript" src="sliding-panels-spec.js"></script>
+
+        <script type="text/javascript" src="../lib/js/sliding-panels.js"></script>
+
+        <script type="text/javascript">
+            jasmine.getFixtures().fixturesPath = 'fixtures';
+
+            $(function() {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 250;
+
+                var reporter = new jasmine.HtmlReporter();
+                jasmineEnv.addReporter(reporter);
+
+                jasmineEnv.specFilter = function(spec) {
+                    return reporter.specFilter(spec);
+                };
+                    jasmineEnv.execute();
+            });
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

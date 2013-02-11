@@ -47,6 +47,10 @@ describe("The slidingPanel widget", function() {
             expect($leftPanel.find(".panel-header .btn-group")).toExist();
         });
 
+        it('should not create for center panel', function() {
+            expect($centerPanel.find(".panel-header .btn-group")).not.toExist();
+        });
+
         it("should align it accord the side of the panel", function() {
             expect($leftPanel.find(".panel-header .btn-group")).toHaveClass("pull-right");
             expect($rightPanel.find(".panel-header .btn-group")).toHaveClass("pull-left");

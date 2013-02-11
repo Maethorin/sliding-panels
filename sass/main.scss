@@ -4,18 +4,19 @@
   background-color: $white;
   border: 1px solid $grayLighter;
   .panel-header {
-      font-size: 14px;
-      color: $grayLighter;
-      font-weight: bold;
-      overflow: hidden;
-      padding-top: 2px;
-      padding-right: 2px;
-      padding-left: 2px;
-      background-color: $blue;
+    font-size: 14px;
+    min-height: 23px;
+    color: $grayLighter;
+    font-weight: bold;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    background-color: $blue;
   }
   .panel-body {
-      padding-top: 20px;
-      padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -30,7 +31,7 @@
       @include border-top-right-radius($baseBorderRadius);
     }
     .panel-title {
-        padding-right: 50px;
+      padding-right: 50px;
     }
   }
   &.right {
@@ -40,7 +41,7 @@
       @include border-top-left-radius($baseBorderRadius);
     }
     .panel-title {
-        padding-left: 50px;
+      padding-left: 50px;
     }
   }
 }

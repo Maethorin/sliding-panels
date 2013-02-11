@@ -13,7 +13,6 @@
 src_files:
    - components/jquery/jquery.min.js
    - components/jquery-ui/jquery.ui.widget.min.js
-   - components/jasmine/jasmine.js
    - components/jasmine-jquery/jasmine-jquery.js
    - spec/lib/sliding-panels.js
 # ADD OTHER FILES HERE!

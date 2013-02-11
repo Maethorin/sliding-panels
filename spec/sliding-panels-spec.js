@@ -1,7 +1,21 @@
 describe("The slidingPanel widget", function() {
     var $leftPanel, $centerPanel, $rightPanel, $container;
+    var fixture = [
+        '<div class="panel-container"></div>',
+        '<div class="some-left-dom">',
+            'this is the left dom',
+        '</div>',
+        '<div class="some-center-dom">',
+            'this is the center dom',
+        '</div>',
+        '<div class="some-right-dom">',
+            'this is the right dom',
+        '</div>'
+    ];
+
     beforeEach(function() {
-        loadFixtures('panels.html');
+//        loadFixtures('panels.html');
+        $(fixture.join('')).appendTo($('body'));
         $container = $(".panel-container");
         $container.slidingPanels({
             "panelTitle": {

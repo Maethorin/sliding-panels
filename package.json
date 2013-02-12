@@ -24,6 +24,7 @@
    ],
    "dependencies": {
        "JQuery": "1.9",
+       "JQuery UI Widget": "1.10",
        "Twitter Bootstrap": "2.2",
        "Font Awesome": "2.2"
    },

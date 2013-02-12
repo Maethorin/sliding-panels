@@ -1,2 +1,3 @@
+Fix pushpin active state. - test toggleFloating with deactivateButton
 Configure to not add a panel.
-Save state in localStorage.
+Configure use of localStorage.

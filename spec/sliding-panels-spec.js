@@ -21,6 +21,14 @@ describe("The slidingPanel widget", function() {
         $rightPanel = $(".panel.right");
     });
 
+    afterEach(function() {
+        delete localStorage["leftPanelFloating"];
+        delete localStorage["rightPanelFloating"];
+        delete localStorage["leftPanelSlided"];
+        delete localStorage["rightPanelSlided"];
+    });
+
+
     it("should create the left panel", function() {
         expect($leftPanel).toExist();
     });
@@ -134,6 +142,16 @@ describe("The slidingPanel widget", function() {
             $rightPanel.find(".btn.btn-mini.pushpin").trigger("click");
             expect($centerPanel).toHaveClass("span12");
         });
+
+        it('should register the floating state in localStorage for left panel', function() {
+            $leftPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            expect(localStorage["leftPanelFloating"]).toBe("true");
+        });
+
+        it('should register the floating state in localStorage for right panel', function() {
+            $rightPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            expect(localStorage["rightPanelFloating"]).toBe("true");
+        });
     });
 
     describe("when docking a panel", function() {
@@ -179,6 +197,18 @@ describe("The slidingPanel widget", function() {
             $rightPanel.find(".btn.btn-mini.pushpin").trigger("click");
             expect($centerPanel).toHaveClass("span6");
         });
+
+        it('should register the docking state in localStorage for left panel', function() {
+            $leftPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            $leftPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            expect(localStorage["leftPanelFloating"]).toBe("false");
+        });
+
+        it('should register the docking state in localStorage for right panel', function() {
+            $rightPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            $rightPanel.find(".btn.btn-mini.pushpin").trigger("click");
+            expect(localStorage["rightPanelFloating"]).toBe("false");
+        });
     });
 
     describe("when sliding a panel out", function() {
@@ -222,6 +252,20 @@ describe("The slidingPanel widget", function() {
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });
+
+        it('should register the slided out state in localStorage for left panel', function() {
+            spyOn($.fn, "animate");
+            $leftPanel.find(".pushpin").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            expect(localStorage["leftPanelSlided"]).toBe("true");
+        });
+
+        it('should register the slided out state in localStorage for right panel', function() {
+            spyOn($.fn, "animate");
+            $rightPanel.find(".pushpin").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            expect(localStorage["rightPanelSlided"]).toBe("true");
+        });
     });
 
     describe("when sliding a panel in", function() {
@@ -254,6 +298,22 @@ describe("The slidingPanel widget", function() {
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });
+
+        it('should register the slided in state in localStorage for left panel', function() {
+            spyOn($.fn, "animate");
+            $leftPanel.find(".pushpin").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            $leftPanel.find(".slide").trigger("click");
+            expect(localStorage["leftPanelSlided"]).toBe("false");
+        });
+
+        it('should register the slided in state in localStorage for right panel', function() {
+            spyOn($.fn, "animate");
+            $rightPanel.find(".pushpin").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            $rightPanel.find(".slide").trigger("click");
+            expect(localStorage["rightPanelSlided"]).toBe("false");
+        });
     });
 
     describe("when loading options", function() {
@@ -275,6 +335,44 @@ describe("The slidingPanel widget", function() {
 
         it('should be possible to add DOM to panel body passing DOM', function() {
             expect($centerPanel.find(".panel-body").find(".some-center-dom")).toHaveText("this is the center dom");
+        });
+    });
+
+    describe("when loading with storage information", function() {
+        it("should float the left panel if storage has the leftPanelFloating equal true", function() {
+            localStorage["leftPanelFloating"] = true;
+            $container.slidingPanels("destroy");
+            $container.slidingPanels();
+            $leftPanel = $(".panel.left");
+            expect($leftPanel).toHaveClass("floating");
+        });
+
+        it("should float the right panel if storage has the rightPanelFloating equal true", function() {
+            localStorage["rightPanelFloating"] = true;
+            $container.slidingPanels("destroy");
+            $container.slidingPanels();
+            $rightPanel = $(".panel.right");
+            expect($rightPanel).toHaveClass("floating");
+        });
+
+        it("should slide the left panel if storage has the leftPanelSlided equal true", function() {
+            spyOn($.fn, "animate");
+            localStorage["leftPanelFloating"] = true;
+            localStorage["leftPanelSlided"] = true;
+            $container.slidingPanels("destroy");
+            $container.slidingPanels();
+            $leftPanel = $(".panel.left");
+            expect($.fn.animate).toHaveBeenCalled();
+        });
+
+        it("should float the right panel if storage has the rightPanelSlided equal true", function() {
+            spyOn($.fn, "animate");
+            localStorage["rightPanelFloating"] = true;
+            localStorage["rightPanelSlided"] = true;
+            $container.slidingPanels("destroy");
+            $container.slidingPanels();
+            $rightPanel = $(".panel.right");
+            expect($.fn.animate).toHaveBeenCalled();
         });
     });
 });

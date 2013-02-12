@@ -39,6 +39,12 @@ describe("The slidingPanel widget", function() {
         expect($rightPanel).toExist();
     });
 
+    it("should not create the right panel if options says so", function() {
+        $container.slidingPanels("destroy");
+        $container.slidingPanels({panels: ["left", "center"]});
+        expect($(".right")).not.toExist();
+    });
+
     it("should add span3 to left panel", function() {
         expect($leftPanel).toHaveClass("span3");
     });

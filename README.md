@@ -16,12 +16,12 @@ Dependencies
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 * [Font Awesome](http://fortawesome.github.com/Font-Awesome/)
 
-You can use the files in components project folder for these dependencies
+You can use the files in `components` project folder for these dependencies
 
 Instalation
 -----------
 
-You just need to put in your HTML file the dependencies and the files dist/js/sliding-panel-min.js and dist/css/sliding-panel.css
+You just need to put in your HTML file the dependencies and the files `dist/js/sliding-panel-min.js` and `dist/css/sliding-panel.css`
 
 Basic use
 ---------
@@ -40,7 +40,6 @@ These elements will be appended to each panel-body.
 
 Your JavaScript code to create the panels should be::
 
-    ::javascript
     $(".panel-container").slidingPanels({
         panelTitle: {
             "left": "Left Panel",
@@ -59,7 +58,6 @@ More Options
 
 If you want to exclude some panel, pass an option panels which should be an Array::
 
-    ::javascript
     $(".panel-container").slidingPanels({
         panels: ["left", "center"],
         panelTitle: {
@@ -77,7 +75,7 @@ This will create the left and center panels only.
 Storage
 -------
 
-This widget will save the panels states in localStorage. There is two states for each panel: floating and slided. If you reload the page, the panels will maintain the states saved in localStorage.
+This widget will save the panels states in `localStorage`. There is two states for each panel: floating and slided. If you reload the page, the panels will maintain the states saved in localStorage.
 
 If you dont want to use storage, pass `useFloatingStorage = false` in options.
 

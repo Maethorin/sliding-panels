@@ -8,6 +8,7 @@
   .panel-header {
     font-size: 14px;
     min-height: 23px;
+    height: 23px;
     color: $grayLighter;
     font-weight: bold;
     overflow: hidden;
@@ -37,6 +38,7 @@
 
 .floating {
   position: absolute;
+  overflow: hidden;
   margin-left: 0;
   @include box-shadow($grayLight 1px 2px 17px);
   &.left {
@@ -59,4 +61,9 @@
       padding-left: 50px;
     }
   }
+}
+
+.floating-container {
+  overflow: hidden;
+  padding: 0 0 10px 10px;
 }

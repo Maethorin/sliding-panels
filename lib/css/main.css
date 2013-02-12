@@ -8193,6 +8193,7 @@ ul.icons li [class*=" icon-"] {
 .panel .panel-header {
   font-size: 14px;
   min-height: 23px;
+  height: 23px;
   color: #eeeeee;
   font-weight: bold;
   overflow: hidden;
@@ -8201,37 +8202,38 @@ ul.icons li [class*=" icon-"] {
   padding-left: 2px;
   background-color: #049cdb;
 }
-/* line 19, ../../sass/sliding-panels.scss */
+/* line 20, ../../sass/sliding-panels.scss */
 .panel .panel-body {
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
-/* line 25, ../../sass/sliding-panels.scss */
+/* line 26, ../../sass/sliding-panels.scss */
 .left .panel-title {
   text-align: right;
   padding-right: 30px;
 }
 
-/* line 30, ../../sass/sliding-panels.scss */
+/* line 31, ../../sass/sliding-panels.scss */
 .center .panel-title {
   padding-left: 10px;
 }
 
-/* line 34, ../../sass/sliding-panels.scss */
+/* line 35, ../../sass/sliding-panels.scss */
 .right .panel-title {
   padding-left: 30px;
 }
 
-/* line 38, ../../sass/sliding-panels.scss */
+/* line 39, ../../sass/sliding-panels.scss */
 .floating {
   position: absolute;
+  overflow: hidden;
   margin-left: 0;
   -webkit-box-shadow: #999999 1px 2px 17px;
   -moz-box-shadow: #999999 1px 2px 17px;
   box-shadow: #999999 1px 2px 17px;
 }
-/* line 42, ../../sass/sliding-panels.scss */
+/* line 44, ../../sass/sliding-panels.scss */
 .floating.left {
   -webkit-border-radius: 0 4px 4px 0;
   -moz-border-radius: 0 4px 4px 0;
@@ -8240,17 +8242,17 @@ ul.icons li [class*=" icon-"] {
   border-radius: 0 4px 4px 0;
   left: 0;
 }
-/* line 45, ../../sass/sliding-panels.scss */
+/* line 47, ../../sass/sliding-panels.scss */
 .floating.left .panel-header {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
-/* line 48, ../../sass/sliding-panels.scss */
+/* line 50, ../../sass/sliding-panels.scss */
 .floating.left .panel-title {
   padding-right: 50px;
 }
-/* line 52, ../../sass/sliding-panels.scss */
+/* line 54, ../../sass/sliding-panels.scss */
 .floating.right {
   -webkit-border-radius: 4px 0 0 4px;
   -moz-border-radius: 4px 0 0 4px;
@@ -8259,13 +8261,19 @@ ul.icons li [class*=" icon-"] {
   border-radius: 4px 0 0 4px;
   right: 0;
 }
-/* line 55, ../../sass/sliding-panels.scss */
+/* line 57, ../../sass/sliding-panels.scss */
 .floating.right .panel-header {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
 }
-/* line 58, ../../sass/sliding-panels.scss */
+/* line 60, ../../sass/sliding-panels.scss */
 .floating.right .panel-title {
   padding-left: 50px;
+}
+
+/* line 66, ../../sass/sliding-panels.scss */
+.floating-container {
+  overflow: hidden;
+  padding: 0 0 10px 10px;
 }

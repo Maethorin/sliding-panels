@@ -221,7 +221,7 @@ describe("The slidingPanel widget", function() {
             $leftPanel.find(".pushpin").trigger("click");
             $leftPanel.find(".slide").trigger("click");
             var expectedAnimate = {
-                "left": "-=" + ($leftPanel.width() - 18)
+                "left": "-=" + ($leftPanel.width() - 21)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });
@@ -252,7 +252,7 @@ describe("The slidingPanel widget", function() {
             $rightPanel.find(".pushpin").trigger("click");
             $rightPanel.find(".slide").trigger("click");
             var expectedAnimate = {
-                "right": "-=" + ($leftPanel.width() - 18)
+                "width": "-=" + ($leftPanel.width() - 21)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });
@@ -279,7 +279,7 @@ describe("The slidingPanel widget", function() {
             $leftPanel.find(".slide").trigger("click");
             $leftPanel.find(".slide").trigger("click");
             var expectedAnimate = {
-                "left": "+=" + ($leftPanel.width() - 18)
+                "left": "+=" + ($leftPanel.width() - 21)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });
@@ -298,7 +298,7 @@ describe("The slidingPanel widget", function() {
             $rightPanel.find(".slide").trigger("click");
             $rightPanel.find(".slide").trigger("click");
             var expectedAnimate = {
-                "right": "+=" + ($rightPanel.width() - 18)
+                "width": "+=" + ($rightPanel.width() - 21)
             };
             expect($.fn.animate).toHaveBeenCalledWith(expectedAnimate, {"queue": false});
         });

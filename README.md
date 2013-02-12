@@ -102,6 +102,7 @@ More Options
 
 If you want to exclude some panel, pass an option panels which should be an Array::
 
+    ```javascript
     $(".panel-container").slidingPanels({
         panels: ["left", "center"],
         panelTitle: {
@@ -113,6 +114,7 @@ If you want to exclude some panel, pass an option panels which should be an Arra
             "center": ".center-panel-body",
         }
     });
+    ```
 
 This will create the left and center panels only.
 

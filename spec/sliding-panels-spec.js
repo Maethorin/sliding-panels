@@ -16,16 +16,14 @@ describe("The slidingPanel widget", function() {
                 "right": ""
             }
         });
-        $leftPanel = $(".panel.left");
-        $centerPanel = $(".panel.center");
-        $rightPanel = $(".panel.right");
+        $leftPanel = $(".left");
+        $centerPanel = $(".center");
+        $rightPanel = $(".right");
     });
 
     afterEach(function() {
-        delete localStorage["leftPanelFloating"];
-        delete localStorage["rightPanelFloating"];
-        delete localStorage["leftPanelSlided"];
-        delete localStorage["rightPanelSlided"];
+        $container.slidingPanels("destroy");
+        $container.empty();
     });
 
 
@@ -338,40 +336,54 @@ describe("The slidingPanel widget", function() {
         });
     });
 
-    describe("when loading with storage information", function() {
-        it("should float the left panel if storage has the leftPanelFloating equal true", function() {
-            localStorage["leftPanelFloating"] = true;
+    describe("when loading floating storage information", function() {
+        beforeEach(function() {
             $container.slidingPanels("destroy");
+            localStorage["leftPanelFloating"] = true;
+            localStorage["rightPanelFloating"] = true;
             $container.slidingPanels();
-            $leftPanel = $(".panel.left");
+            $leftPanel = $(".left");
+            $rightPanel = $(".right");
+        });
+
+        it("should float the left panel if storage has the leftPanelFloating equal true", function() {
             expect($leftPanel).toHaveClass("floating");
         });
 
+        it("should deactivate pushpin button if PanelFloating equal true", function() {
+            expect($leftPanel.find(".pushpin")).not.toHaveClass("activate");
+        });
+
         it("should float the right panel if storage has the rightPanelFloating equal true", function() {
-            localStorage["rightPanelFloating"] = true;
-            $container.slidingPanels("destroy");
-            $container.slidingPanels();
-            $rightPanel = $(".panel.right");
             expect($rightPanel).toHaveClass("floating");
         });
 
-        it("should slide the left panel if storage has the leftPanelSlided equal true", function() {
-            spyOn($.fn, "animate");
-            localStorage["leftPanelFloating"] = true;
-            localStorage["leftPanelSlided"] = true;
+        it('should ignore storage if options says so', function() {
             $container.slidingPanels("destroy");
+            $container.slidingPanels({"useFloatingStorage": false});
+            $leftPanel = $(".left");
+            expect($leftPanel).not.toHaveClass("floating");
+        });
+    });
+
+    describe("when loading slided storage information", function() {
+        beforeEach(function() {
+            spyOn($.fn, "animate");
+            $container.slidingPanels("destroy");
+            localStorage["leftPanelFloating"] = true;
+            localStorage["rightPanelFloating"] = true;
+            localStorage["leftPanelSlided"] = true;
+            localStorage["rightPanelSlided"] = true;
             $container.slidingPanels();
-            $leftPanel = $(".panel.left");
+            $leftPanel = $(".left");
+            $rightPanel = $(".right");
+        });
+
+        it("should slide the left panel if storage has the leftPanelSlided equal true", function() {
             expect($.fn.animate).toHaveBeenCalled();
         });
 
         it("should float the right panel if storage has the rightPanelSlided equal true", function() {
-            spyOn($.fn, "animate");
-            localStorage["rightPanelFloating"] = true;
-            localStorage["rightPanelSlided"] = true;
-            $container.slidingPanels("destroy");
-            $container.slidingPanels();
-            $rightPanel = $(".panel.right");
             expect($.fn.animate).toHaveBeenCalled();
         });
     });

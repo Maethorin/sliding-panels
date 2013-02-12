@@ -4,7 +4,7 @@ Sliding Panels - [![Build Status](https://travis-ci.org/Maethorin/sliding-panels
 Introduction
 ------------
 
-This is a simple JQuery widget to create three panels (using Twitter Bootstrap) with left and right sides that can float and slide.
+This is a simple JQuery widget to create three panels (using Twitter Bootstrap) with left and right sides with float/dock and slide funcionalities.
 
 The index.html file, in the project root folder, has a basic example on how to using it.
 

@@ -18,8 +18,8 @@ Dependencies
 
 You can use the files in `components` project folder for these dependencies
 
-Instalation
------------
+Install
+-------
 
 You just need to put in your HTML file the dependencies and the files `dist/js/sliding-panel-min.js` and `dist/css/sliding-panel.css`
 
